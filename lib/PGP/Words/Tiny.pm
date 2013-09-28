@@ -4,7 +4,7 @@ use warnings;
 
 package PGP::Words::Tiny;
 # ABSTRACT: Convert data to/from the PGP word list
-our $VERSION = '0.001'; # VERSION
+our $VERSION = '0.002'; # VERSION
 
 use Carp qw/croak/;
 use Exporter 5.57 qw/import/;
@@ -13,31 +13,33 @@ our @EXPORT_OK = qw(encode_pgp decode_pgp encode_pgp_hex decode_pgp_hex);
 my ( @even, @odd, %rev_even, %rev_odd );
 
 sub encode_pgp {
-  my $c = 0;
-  return map { $c++ & 1 ? $odd[$_] : $even[$_] } unpack "C*", $_[0];
+    my $c = 0;
+    return map { $c++ & 1 ? $odd[$_] : $even[$_] } unpack "C*", $_[0];
 }
 
 sub decode_pgp {
-  my @input = @_ > 1 ? @_ : split " ", $_[0];
-  my ( $c, @data ) = 0;
-  for my $word (@input) {
-    my $value = ( $c++ & 1 ? $rev_odd{ lc $word } : $rev_even{ lc $word } );
-    croak "Encoding error detected at word $c ('$word')"
-      unless defined $value;
-    push @data, $value;
-  }
-  return pack "C*", @data;
+    my @input = @_ > 1 ? @_ : split " ", $_[0];
+    my ( $c, @data ) = 0;
+    for my $word (@input) {
+        my $value = ( $c++ & 1 ? $rev_odd{ lc $word } : $rev_even{ lc $word } );
+        croak "Encoding error detected at word $c ('$word')"
+          unless defined $value;
+        push @data, $value;
+    }
+    return pack "C*", @data;
 }
 
 sub encode_pgp_hex {
-  my $string = shift;
-  $string =~ s/^0x//i;
-  return encode_pgp( pack "H*", $string );
+    my $string = shift;
+    $string =~ s/^0x//i;
+    return encode_pgp( pack "H*", $string );
 }
 
 sub decode_pgp_hex {
-   return "0x" . unpack "H*", decode_pgp(@_);
+    return "0x" . unpack "H*", decode_pgp(@_);
 }
+
+#<<< No perltidy
 
 @even = qw(
   aardvark absurd accrue acme adrift adult afflict ahead aimless
@@ -105,6 +107,8 @@ sub decode_pgp_hex {
   yesteryear Yucatan
 );
 
+#>>> # no perl tidy
+
 @rev_even{ map { lc } @even } = 0 .. $#even;
 @rev_odd{ map  { lc } @odd }  = 0 .. $#odd;
 
@@ -117,13 +121,15 @@ __END__
 
 =pod
 
+=encoding utf-8
+
 =head1 NAME
 
 PGP::Words::Tiny - Convert data to/from the PGP word list
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 
@@ -189,7 +195,7 @@ of PGP words.  It otherwise functions like C<decode_pgp>.
 =head2 Bugs / Feature Requests
 
 Please report any bugs or feature requests through the issue tracker
-at L<https://github.com//pgp-words-tiny/issues>.
+at L<https://github.com/dagolden/PGP-Words-Tiny/issues>.
 You will be notified automatically of any progress on your issue.
 
 =head2 Source Code
@@ -197,9 +203,9 @@ You will be notified automatically of any progress on your issue.
 This is open source software.  The code repository is available for
 public review and contribution under the terms of the license.
 
-L<https://github.com/dagolden/pgp-words-tiny>
+L<https://github.com/dagolden/PGP-Words-Tiny>
 
-  git clone git://github.com/dagolden/pgp-words-tiny.git
+  git clone https://github.com/dagolden/PGP-Words-Tiny.git
 
 =head1 AUTHOR
 

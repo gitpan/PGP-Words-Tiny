@@ -4,7 +4,7 @@
       "David Golden <dagolden@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300028, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.132620",
    "license" : [
       "apache_2_0"
    ],
@@ -27,7 +27,7 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "6.30"
+            "ExtUtils::MakeMaker" : "6.17"
          }
       },
       "develop" : {
@@ -49,8 +49,13 @@
       },
       "test" : {
          "requires" : {
-            "File::Find" : "0",
+            "ExtUtils::MakeMaker" : "0",
+            "File::Spec" : "0",
+            "File::Spec::Functions" : "0",
             "File::Temp" : "0",
+            "IO::Handle" : "0",
+            "IPC::Open3" : "0",
+            "List::Util" : "0",
             "Test::More" : "0.96"
          }
       }
@@ -58,21 +63,22 @@
    "provides" : {
       "PGP::Words::Tiny" : {
          "file" : "lib/PGP/Words/Tiny.pm",
-         "version" : "0.001"
+         "version" : "0.002"
       }
    },
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com//pgp-words-tiny/issues"
+         "web" : "https://github.com/dagolden/PGP-Words-Tiny/issues"
       },
-      "homepage" : "https://metacpan.org/release/PGP-Words-Tiny",
+      "homepage" : "https://github.com/dagolden/PGP-Words-Tiny",
       "repository" : {
          "type" : "git",
-         "url" : "git://github.com/dagolden/pgp-words-tiny.git",
-         "web" : "https://github.com/dagolden/pgp-words-tiny"
+         "url" : "https://github.com/dagolden/PGP-Words-Tiny.git",
+         "web" : "https://github.com/dagolden/PGP-Words-Tiny"
       }
    },
-   "version" : "0.001"
+   "version" : "0.002",
+   "x_authority" : "cpan:DAGOLDEN"
 }
 

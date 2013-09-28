@@ -2,7 +2,7 @@ NAME
     PGP::Words::Tiny - Convert data to/from the PGP word list
 
 VERSION
-    version 0.001
+    version 0.002
 
 SYNOPSIS
       use PGP::Words::Tiny qw/encode_pgp_hex decode_pgp_hex/;
@@ -61,16 +61,16 @@ USAGE
 SUPPORT
   Bugs / Feature Requests
     Please report any bugs or feature requests through the issue tracker at
-    <https://github.com//pgp-words-tiny/issues>. You will be notified
-    automatically of any progress on your issue.
+    <https://github.com/dagolden/PGP-Words-Tiny/issues>. You will be
+    notified automatically of any progress on your issue.
 
   Source Code
     This is open source software. The code repository is available for
     public review and contribution under the terms of the license.
 
-    <https://github.com/dagolden/pgp-words-tiny>
+    <https://github.com/dagolden/PGP-Words-Tiny>
 
-      git clone git://github.com/dagolden/pgp-words-tiny.git
+      git clone https://github.com/dagolden/PGP-Words-Tiny.git
 
 AUTHOR
     David Golden <dagolden@cpan.org>

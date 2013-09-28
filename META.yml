@@ -3,13 +3,18 @@ abstract: 'Convert data to/from the PGP word list'
 author:
   - 'David Golden <dagolden@cpan.org>'
 build_requires:
-  File::Find: 0
+  ExtUtils::MakeMaker: 0
+  File::Spec: 0
+  File::Spec::Functions: 0
   File::Temp: 0
+  IO::Handle: 0
+  IPC::Open3: 0
+  List::Util: 0
   Test::More: 0.96
 configure_requires:
-  ExtUtils::MakeMaker: 6.30
+  ExtUtils::MakeMaker: 6.17
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300028, CPAN::Meta::Converter version 2.120921'
+generated_by: 'Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.132620'
 license: apache
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -26,7 +31,7 @@ no_index:
 provides:
   PGP::Words::Tiny:
     file: lib/PGP/Words/Tiny.pm
-    version: 0.001
+    version: 0.002
 requires:
   Carp: 0
   Exporter: 5.57
@@ -34,7 +39,8 @@ requires:
   strict: 0
   warnings: 0
 resources:
-  bugtracker: https://github.com//pgp-words-tiny/issues
-  homepage: https://metacpan.org/release/PGP-Words-Tiny
-  repository: git://github.com/dagolden/pgp-words-tiny.git
-version: 0.001
+  bugtracker: https://github.com/dagolden/PGP-Words-Tiny/issues
+  homepage: https://github.com/dagolden/PGP-Words-Tiny
+  repository: https://github.com/dagolden/PGP-Words-Tiny.git
+version: 0.002
+x_authority: cpan:DAGOLDEN
